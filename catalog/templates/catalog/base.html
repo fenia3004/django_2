@@ -173,7 +173,10 @@
         <h1 class="fw-light">Магазин продуктов</h1>
         <p class="lead text-body-secondary">ПоХомячим</p>
         <p>
-           <a class="btn btn-primary" href="{% url 'catalog:product_create' %}" role="button">Создать</a>
+          <div class="row gy-3 mx-10">
+           <a class="btn btn-primary" href="{% url 'BLOG:blog_list' %}" role="button">Покупатели</a>
+           <a class="btn btn-primary" href="{% url 'catalog:product_list' %}" role="button">Продукты</a>
+        </div>
         </p>
       </div>
     </div>
