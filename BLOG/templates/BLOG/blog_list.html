@@ -1,10 +1,12 @@
 {% extends 'catalog/base.html' %}
 {% load my_tags %}
 {% block content %}
-<div class="row">
-    <div class="col-md-8 offset-md-2">
-        <a class="btn btn-primary" href="{% url 'BLOG:blog_create' %}" role="button">Добавить посетителя</a>
+<div class="container">
+  <div class="row gy-3 mx-10">
+    <div class="col text-center">
+        <a class="btn btn-lg btn-block btn-outline-info" href="{% url 'catalog:product_create' %}" role="button">Добавить посетителя</a>
     </div>
+  </div>
 </div>
 <div class="album py-5 bg-body-tertiary">
     <div class="container">
