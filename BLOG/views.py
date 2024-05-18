@@ -19,6 +19,7 @@ class BlogDetailView(DetailView):
         self.object.save()
         return self.object
 
+
 class BlogCreateView(CreateView):
     model = Blog
     fields = ['name', 'description', 'photo']
@@ -36,6 +37,7 @@ class BlogCreateView(CreateView):
 class BlogUpdateView(UpdateView):
     model = Blog
     fields = ['name', 'description', 'photo']
+
     # success_url = reverse_lazy('catalog:product_list')
 
     def get_success_url(self):
@@ -48,7 +50,6 @@ class BlogUpdateView(UpdateView):
             new_mat.save()
 
         return super().form_valid(form)
-
 
 
 class BlogDeleteView(DeleteView):
