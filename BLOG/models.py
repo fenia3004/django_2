@@ -2,6 +2,9 @@ from django.db import models
 
 
 class Blog(models.Model):
+    is_active = models.BooleanField(
+        default=True
+    )
     name = models.CharField(
         max_length=70,
         verbose_name="Заголовок"
