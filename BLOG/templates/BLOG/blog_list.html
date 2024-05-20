@@ -21,18 +21,22 @@
 
                         <p class="card-text"> {{ object.description|slice:100 }} </p>
                         <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                <a class="btn btn-light" href="{% url 'BLOG:blog_detail' blog.pk %}" role="button">Просмотр</a>
-                                <a class="btn btn-primary" href="{% url 'BLOG:blog_update' blog.pk %}" role="button">Редактирование</a>
-                                <a class="btn btn-danger" href="{% url 'BLOG:blog_delete' blog.pk %}" role="button">Удалить</a>
+                            <div class="col text-center">
+                                <div class="btn-group">
+                                    <a class="btn btn-light" href="{% url 'BLOG:blog_detail' blog.pk %}" role="button">Просмотр</a>
+                                    <a class="btn btn-primary" href="{% url 'BLOG:blog_update' blog.pk %}" role="button">Редактирование</a>
+                                    <a class="btn btn-danger" href="{% url 'BLOG:blog_delete' blog.pk %}" role="button">Удалить</a>
+                                </div>
                             </div>
                             <small class="text-body-secondary"></small>
                         </div>
-                        {% if blog.is_active %}
-                        <a class="btn btn-warning" href="{% url 'BLOG:toggle_active' blog.pk %}" role="button">Деактивировать</a>
-                        {% else %}
-                        <a class="btn btn-success" href="{% url 'BLOG:toggle_active' blog.pk %}" role="button">Активировать</a>
-                        {% endif %}
+                        <div class="col text-center ">
+                            {% if blog.is_active %}
+                            <a class="btn btn-outline-warning"  href="{% url 'BLOG:toggle_active' blog.pk %}" role="button">Деактивировать</a>
+                            {% else %}
+                            <a class="btn btn-outline-success" style="width:100%; height:100%; object-fit: cover" href="{% url 'BLOG:toggle_active' blog.pk %}" role="button">Активировать</a>
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
             </div>
