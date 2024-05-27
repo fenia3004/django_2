@@ -16,9 +16,9 @@ class ProductListView(ListView):
         products = Product.objects.all()
 
         for product in products:
-            # versions = Version.objects.filter(name=product)
-            # active_versions = versions.filter(is_actual=True)
-            active_versions = Version.objects.filter(name=product, is_actual=True).first()
+            versions = Version.objects.filter(name=product)
+            active_versions = versions.filter(is_actual=True)
+            # active_versions = Version.objects.filter(name=product, is_actual=True).first()
             if active_versions:
                 product.active_version = active_versions.last().version_number
             else:
