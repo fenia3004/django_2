@@ -16,8 +16,9 @@ class ProductListView(ListView):
         products = Product.objects.all()
 
         for product in products:
-            versions = Version.objects.filter(product=product)
-            active_versions = versions.filter(is_actual=True)
+            # versions = Version.objects.filter(name=product)
+            # active_versions = versions.filter(is_actual=True)
+            active_versions = Version.objects.filter(name=product, is_actual=True).first()
             if active_versions:
                 product.active_version = active_versions.last().version_number
             else:
@@ -40,7 +41,7 @@ class ProductDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         product = self.get_object()
 
-        versions = Version.objects.filter(product=product)
+        versions = Version.objects.filter(name=product)
         active_versions = versions.filter(is_actual=True)
         if active_versions.exists():
             product.active_version = active_versions.first().version_number
